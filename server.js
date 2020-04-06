@@ -26,13 +26,13 @@ server.get("/receitas", (req, res) => {
   return res.render("receitas", { items: receitas });
 });
 
-server.get("/receita/:index", (req, res) => {
+server.get("/receita", (req, res) => {
   const recipes = receitas;
-  const recipeIndex = req.params.index;
+  const recipeIndex = 0;
 
   return res.render("receita", { receita: recipes[recipeIndex] });
 });
 
-server.listen(1234, () => {
-  console.log(" O pai ta on na porta 1234");
+server.listen(3030, () => {
+  console.log(" O pai ta on na porta 3030");
 });
