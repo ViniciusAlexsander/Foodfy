@@ -33,6 +33,6 @@ server.get("/receita/:index", (req, res) => {
   return res.render("receita", { receita: recipes[recipeIndex] });
 });
 
-server.listen(3030, () => {
-  console.log(" O pai ta on na porta 3030");
+server.listen(3000, () => {
+  console.log(" O pai ta on na porta 3000");
 });
