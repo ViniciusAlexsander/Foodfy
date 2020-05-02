@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+header {
+  background-color: #111111;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.cabecalho {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+}
+.links {
+  text-align: center;
+}
+.links a {
+  padding: 0 25px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #ffffff;
+}
+.links a:hover {
+  padding-bottom: 3px;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Card de formulario etc*/
+.card {
+  background-color: white;
+  width: 900px;
+  min-width: 720px;
+  margin: 50px auto;
+}
+.cardCabecalho {
+  display: grid;
+  grid-template-columns: 700px 1fr;
+}
+.cardCabecalho .buttons {
+  align-items: flex-end;
+}
+.cardCabecalho .buttons .salvar {
+  background-color: #6558c3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: right;
+}
+.cardCabecalho .buttons .salvar:hover {
+  background-color: #331ed1;
+}
+.card h2 {
+  font-size: 24px;
+  color: #111111;
+}
+.card .titulo {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #111111;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+.card div input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  border-radius: 4px;
+  height: 49px;
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #111111;
+  padding-left: 10px;
+}
+.card .last {
+  padding-bottom: 200px;
+}
+input::placeholder {
+  color: #555555;
+}
+.item button {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #6558c3;
+  background-color: transparent;
+  margin-top: 15px;
+  margin-left: 8px;
+  border: none;
+}
+/*Footer*/
+footer {
+  background: #eeeeee;
+  text-align: center;
+  padding: 23px 0;
+  margin-top: 50px;
+}
+footer p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #999999;
+  text-align: center;
+}

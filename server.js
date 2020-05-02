@@ -1,10 +1,11 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
-
+const routes = require("./routes");
 const server = express();
-const receitas = require("./data");
 
+server.use(express.urlencoded({ extended: true }));
 server.use(express.static("public"));
+server.use(routes);
 
 server.set("view engine", "njk");
 
@@ -14,25 +15,7 @@ nunjucks.configure("views", {
   noCache: true,
 });
 
-server.get("/", (req, res) => {
-  return res.render("home", { items: receitas });
-});
-
-server.get("/sobre", (req, res) => {
-  return res.render("sobre");
-});
-
-server.get("/receitas", (req, res) => {
-  return res.render("receitas", { items: receitas });
-});
-
-server.get("/receita/:index", (req, res) => {
-  const recipes = receitas;
-  const recipeIndex = req.params.index;
-
-  return res.render("receita", { receita: recipes[recipeIndex] });
-});
-var port = process.env.PORT || 3000;
+let port = process.env.PORT || 3333;
 server.listen(port, () => {
   console.log(`O pai ta on na porta ${port}`);
 });
