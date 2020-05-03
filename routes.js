@@ -14,4 +14,6 @@ routes.get("/receita/:index", user.receita);
 
 //visão de um admin para o site
 routes.get("/admin/recipes/create", admin.create);
+
+routes.post("/admin/recipes", admin.post);
 module.exports = routes;

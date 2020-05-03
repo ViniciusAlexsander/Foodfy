@@ -52,7 +52,7 @@ header {
 }
 .cardCabecalho .buttons .salvar {
   background-color: #6558c3;
-  padding: 4px 8px;
+  padding: 16px 24px;
   border-radius: 4px;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
@@ -104,6 +104,10 @@ input::placeholder {
   margin-top: 15px;
   margin-left: 8px;
   border: none;
+}
+.preparation input,
+.ingredient input {
+  margin-bottom: 16px;
 }
 /*Footer*/
 footer {

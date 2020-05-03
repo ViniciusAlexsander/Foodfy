@@ -1,12 +1,24 @@
 <div class="item">
   <div class="titulo">Url da foto da receita</div>
   <div>
-    <input type="url" name="recipe_url" placeholder="https://">
+    <input type="url" name="image" placeholder="https://">
+  </div>
+</div>
+<div class="item">
+  <div class="titulo">Título da receita</div>
+  <div>
+    <input type="text" name="title" placeholder="">
+  </div>
+</div>
+<div class="item">
+  <div class="titulo">Autor da receita</div>
+  <div>
+    <input type="text" name="author" placeholder="">
   </div>
 </div>
 <div class="item">
   <div class="titulo">Ingredientes</div>
-  <div class="ingredients">
+  <div id="ingredients">
     <div class="ingredient">
       <input type="text" name="ingredients[]" value=""/>
     </div>
@@ -15,16 +27,16 @@
 </div>
 <div class="item">
   <div class="titulo">Modo de preparo</div>
-  <div class="ingredients">
-    <div class="ingredient">
-      <input type="text" name="passos[]" value=""/>
+  <div id="preparations">
+    <div class="preparation">
+      <input type="text" name="preparation[]" value=""/>
     </div>
   </div>
-  <button type="button" class="add-ingredient">Adicionar novo passo</button>
+  <button type="button" class="add-preparation">Adicionar novo passo</button>
 </div>
 <div class="item">
   <div class="titulo">Informações adicionais</div>
   <div>
-    <input class="last" type="text" name="recipe_url" placeholder="Digite alguma dica de preparo ou algo similar">
+    <input class="last" type="text" name="information" placeholder="Digite alguma dica de preparo ou algo similar">
   </div>
 </div>

@@ -40,6 +40,7 @@ header {
   width: 940px;
   height: 366px;
   margin: 0 auto;
+  margin-bottom: 35px;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
