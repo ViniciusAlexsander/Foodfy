@@ -1,12 +1,17 @@
 const fs = require("fs");
 const data = require("../data.json");
 
+//apenas mostra a página index de listagem das receitas
+exports.index = function (req, res) {
+  return res.render("admin/index", { recipes: data.recipes });
+};
+
 //apenas mostra a pagina de criação
 exports.create = function (req, res) {
   return res.render("admin/create");
 };
 
-//realmente permite cria
+//realmente permite criar a receita
 exports.post = function (req, res) {
   const keys = Object.keys(req.body);
 
@@ -48,6 +53,25 @@ exports.post = function (req, res) {
   fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
     if (err) return res.send("Write file error");
 
-    return res.redirect(`/receita/${id}`);
+    return res.redirect(`/admin/recipes/${id}`);
   });
+};
+
+//mostra uma receita
+exports.show = function (req, res) {
+  const { id } = req.params;
+
+  let foundRecipe;
+
+  for (let i = 0; i < data.recipes.length; i++) {
+    if (data.recipes[i].id == id) {
+      foundRecipe = data.recipes[i];
+    }
+  }
+
+  const recipe = {
+    ...foundRecipe,
+  };
+
+  return res.render("admin/show", { recipe });
 };
