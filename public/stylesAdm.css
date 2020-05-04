@@ -48,12 +48,14 @@ header {
   display: grid;
   grid-template-columns: 700px 1fr;
 }
-.cardCabecalho .buttons {
-  align-items: flex-end;
+.buttons {
+  display: inline-block;
 }
+.buttons .salvar,
+.buttons .deletar,
 .cardCabecalho .buttons .salvar {
   background-color: #6558c3;
-  padding: 16px 24px;
+  padding: 16px 32px;
   border-radius: 4px;
   border-radius: 4px;
   font-family: "Roboto", sans-serif;
@@ -62,7 +64,16 @@ header {
   color: #ffffff;
   text-align: right;
   text-decoration: none;
+  margin-top: 24px;
 }
+.buttons .deletar {
+  background-color: #dc4747;
+  padding: 16px 56px;
+}
+.buttons .deletar:hover {
+  background-color: #e91010;
+}
+.buttons .salvar:hover,
 .cardCabecalho .buttons .salvar:hover {
   background-color: #331ed1;
 }
