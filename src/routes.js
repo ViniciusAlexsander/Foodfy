@@ -1,7 +1,7 @@
 const express = require("express");
 const routes = express.Router();
-const user = require("./controllers/users");
-const recipes = require("./controllers/recipes");
+const user = require("./app/controllers/users");
+const recipes = require("./app/controllers/recipes");
 
 //visão para usuarios padrões do site
 routes.get("/", function (req, res) {
