@@ -10,7 +10,7 @@ routes.get("/", function (req, res) {
 routes.get("/home", user.home);
 routes.get("/sobre", user.sobre);
 routes.get("/receitas", user.receitas);
-routes.get("/receita/:index", user.receita);
+routes.get("/receita/:id", user.receita);
 
 /*visão de um admin para o site*/
 
