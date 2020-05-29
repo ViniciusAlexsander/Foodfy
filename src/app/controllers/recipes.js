@@ -3,11 +3,11 @@ const Recipes = require("../models/Recipes");
 module.exports = {
   index(req, res) {
     Recipes.all(function (recipes) {
-      return res.render("admin/index", { recipes });
+      return res.render("admin/recipes/index", { recipes });
     });
   },
   create(req, res) {
-    return res.render("admin/create");
+    return res.render("admin/recipes/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -24,14 +24,14 @@ module.exports = {
   show(req, res) {
     Recipes.find(req.params.id, function (recipe) {
       if (!recipe) return res.send("Recipe not found");
-      return res.render(`admin/show`, { recipe });
+      return res.render(`admin/recipes/show`, { recipe });
     });
   },
   edit(req, res) {
     Recipes.find(req.params.id, function (recipe) {
       if (!recipe) return res.send("Recipe not found");
 
-      return res.render("admin/edit", { recipe });
+      return res.render("admin/recipes/edit", { recipe });
     });
   },
   put(req, res) {

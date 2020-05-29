@@ -43,10 +43,14 @@ header {
   min-width: 720px;
   margin: 50px auto;
 }
+.cardCabecalho,
 .receita .cardCabecalho,
 .card .cardCabecalho {
   display: grid;
   grid-template-columns: 700px 1fr;
+}
+.cardCabecalho {
+  align-items: center;
 }
 .buttons {
   display: inline-block;
@@ -139,6 +143,9 @@ input::placeholder {
 }
 .recipe {
   width: 300px;
+  margin-right: 42px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 .card img {
   width: 172px;
@@ -235,6 +242,35 @@ input::placeholder {
 }
 .adicionais p {
   margin-bottom: 20px;
+}
+/* Show chef solo*/
+.chef {
+  max-width: 940px;
+  margin: 0 auto;
+}
+.chef .perfil {
+  text-align: center;
+}
+.perfil img {
+  margin-top: 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.perfil h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: #111111;
+  line-height: 42px;
+}
+.perfil p {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: #777777;
+  font-size: 20px;
+  line-height: 24px;
 }
 /*Footer*/
 footer {
