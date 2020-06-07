@@ -5,7 +5,6 @@ module.exports = {
     Recipes.findTop6(function(recipes) {
       return res.render("users/home",{recipes} );
     })
-   
   },
   sobre(req, res) {
     return res.render("users/sobre");

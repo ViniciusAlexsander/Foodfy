@@ -14,7 +14,9 @@ routes.get("/receitas", user.receitas);
 routes.get("/receita/:id", user.receita);
 
 /*visão de um admin para o site*/
-
+routes.get("/admin", function (req, res) {
+  return res.redirect("/admin/recipes");
+});
 routes.get("/admin/recipes", recipes.index);
 routes.get("/admin/recipes/create", recipes.create);
 routes.get("/admin/recipes/:id", recipes.show);
@@ -24,8 +26,11 @@ routes.post("/admin/recipes", recipes.post);
 routes.put("/admin/recipes", recipes.put);
 routes.delete("/admin/recipes", recipes.delete);
 
-/*visão do admin criação de receitas*/
+/*visão do admin criação de chefs*/
 routes.get("/admin/chefs", chefs.index);
 routes.get("/admin/chefs/create", chefs.create);
 routes.get("/admin/chefs/:id", chefs.show);
+
+routes.post("/admin/chefs", chefs.post);
+
 module.exports = routes;
