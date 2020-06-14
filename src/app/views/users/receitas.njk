@@ -13,10 +13,12 @@
               <p class="title">{{recipe.title}}</p>
               <p class="autor">por
                 {{recipe.author}}</p>
+              <a class="view" href="/receita/{{recipe.id}}">Visualizar</a>
             </div>
+
           </div>
           {% endfor%}
         </div>
       </div>
-      <script src="/scripts.js"></script>
+      {# <script src="/scripts.js"></script> #}
       {% endblock%}

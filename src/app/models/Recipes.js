@@ -3,9 +3,11 @@ const { date } = require("../../lib/utils");
 
 module.exports = {
   all(callback) {
-    const query = `SELECT * FROM recipes`;
+    const query = `
+    SELECT recipes.*,chefs.name AS author 
+    FROM recipes JOIN chefs ON (chefs.id = recipes.chef_id)`;
     db.query(query, function (err, results) {
-      if (err) throw `Database error! ${err}`;
+      if (err) throw `Database error at all recipes! ${err}`;
 
       callback(results.rows);
     });
@@ -35,34 +37,33 @@ module.exports = {
     ];
 
     db.query(query, values, function (err, results) {
-      if (err) throw `Database Error! ${err}`;
+      if (err) throw `Database Error at create recipe! ${err}`;
       callback(results.rows[0]);
     });
   },
   find(id, callback) {
     const query = `
-    SELECT * 
-    FROM recipes
-    WHERE id = $1
+    SELECT recipes.*, chefs.name AS author
+    FROM recipes JOIN chefs ON (recipes.chef_id = chefs.id)
+    WHERE recipes.id = $1
     `;
     db.query(query, [id], function (err, results) {
-      if (err) throw `Database Error ${err}`;
+      if (err) throw `Database Error at find recipes ${err}`;
 
       callback(results.rows[0]);
     });
   },
   findTop6(callback) {
     const query = `
-    SELECT * 
-    FROM recipes
+    SELECT recipes.*, chefs.name AS author 
+    FROM recipes JOIN chefs ON (chefs.id = recipes.chef_id)
     LIMIT 6
     `;
     db.query(query, function (err, results) {
-      if (err) throw `Database Error ${err}`;
+      if (err) throw `Database Error at findTop6 ${err}`;
 
       callback(results.rows);
     });
-
   },
   update(data, callback) {
     const query = `
@@ -87,7 +88,7 @@ module.exports = {
     ];
 
     db.query(query, values, function (err, results) {
-      if (err) throw `Database error ${err}`;
+      if (err) throw `Database error at update recipe ${err}`;
       callback();
     });
   },
@@ -97,7 +98,7 @@ module.exports = {
     WHERE id = ($1)
     `;
     db.query(query, [id], function (err, results) {
-      if (err) throw `Database Error! ${err}`;
+      if (err) throw `Database Error at delete recipe! ${err}`;
 
       return callback();
     });

@@ -26,15 +26,40 @@ module.exports = {
     const values = [data.name, data.avatar_url, date(Date.now()).iso];
 
     db.query(query, values, function (err, results) {
-      if (err) throw `Database erro at create ${err}`;
+      if (err) throw `Database erro at create chef ${err}`;
       callback(results.rows[0]);
     });
   },
   find(id, callback) {
-    const query = `SELECT * FROM chefs WHERE id = $1`;
+    const query = `
+    SELECT *
+    FROM chefs
+    WHERE chefs.id = $1`;
     db.query(query, [id], function (err, results) {
-      if (err) throw `Database error at find ${err}`;
+      if (err) throw `Database error at find chef ${err}`;
       callback(results.rows[0]);
+    });
+  },
+  update(data, callback) {
+    const query = `
+      UPDATE chefs SET
+      name=($1),
+      avatar_url=($2)
+      WHERE id=($3)
+    `;
+    const values = [data.name, data.avatar_url, data.id];
+
+    db.query(query, values, function (err, results) {
+      if (err) throw `Database error at uptade chef ${err}`;
+      callback();
+    });
+  },
+  delete(id, callback) {
+    const query = `DELETE FROM chefs WHERE id=($1)`;
+
+    db.query(query, [id], function (err, results) {
+      if (err) throw `Database erro at delete chefs ${err}`;
+      callback();
     });
   },
 };

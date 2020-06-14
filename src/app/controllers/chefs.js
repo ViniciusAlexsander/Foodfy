@@ -1,9 +1,10 @@
 const Chefs = require("../models/Chefs");
+// const recipes = require("./recipes");
 
 module.exports = {
   index(req, res) {
     Chefs.all(function (chefs) {
-      return res.json("admin/chefs/index", {chefs});
+      return res.render("admin/chefs/index", { chefs });
     });
   },
   create(req, res) {
@@ -22,9 +23,32 @@ module.exports = {
     });
   },
   show(req, res) {
-    Chefs.find(req.params.id,function(chef) {
-      if(!chef) return res.send("Chef not found")
-      return res.render(`admin/chefs/show`, {chef})
-    })
+    Chefs.find(req.params.id, function (chef) {
+      if (!chef) return res.send("Chef not found");
+      return res.render(`admin/chefs/show`, { chef });
+    });
+  },
+  edit(req, res) {
+    Chefs.find(req.params.id, function (chef) {
+      if (!chef) return res.send("Chef not found");
+      return res.render("admin/chefs/edit", { chef });
+    });
+  },
+  put(req, res) {
+    const keys = Object.keys(req.body);
+
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send("Please, fill all filds");
+      }
+    }
+    Chefs.update(req.body, function () {
+      return res.redirect(`/admin/chefs/${req.body.id}`);
+    });
+  },
+  delete(req, res) {
+    Chefs.delete(req.body.id, function () {
+      return res.redirect(`/admin/chefs`);
+    });
   },
 };

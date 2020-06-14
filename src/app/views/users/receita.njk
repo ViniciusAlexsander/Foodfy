@@ -2,42 +2,41 @@
 {% block head %}
   <title>Foodfy -
     {{recipe.title}}</title>
-  <link rel="stylesheet" href="styles.css"/>
 {% endblock %}
 {% block content %}
   <div class="receita">
     <img src="{{recipe.image}}"/>
     <h2>{{recipe.title}}</h2>
     <p>por
-      {{recipe.author}}</>
+      {{recipe.author}}</p>
     <div class="ingredientes topicos">
       <div class="subtitulos">
         <h3>Ingredientes</h3>
-        <button class="esconder">Esconder</button>
+        {# <button class="esconder">Esconder</button> #}
       </div>
-      <ul>
+      <p>
         {% for ingredient in recipe.ingredients %}
           <li>{{ingredient}}</li>
           {% endfor%}
-        </ul>
+        </p>
       </div>
     </div>
     <div class="preparo topicos">
       <div class="subtitulos">
         <h3>Modo de preparo</h3>
-        <button class="esconder" value="mostrar">Esconder</button>
+        {# <button class="esconder" value="mostrar">Esconder</button> #}
       </div>
-      <ul>
+      <p>
         {% for passo in recipe.preparation %}
           <li>{{passo}}
           </li>
           {% endfor%}
-        </ul>
+        </p>
       </div>
       <div class="adicionais topicos">
         <div class="subtitulos">
           <h3>Informações adicionais</h3>
-          <button class="esconder">Esconder</button>
+          {# <button class="esconder">Esconder</button> #}
         </div>
         <p>{{recipe.information}}</p>
       </div>
