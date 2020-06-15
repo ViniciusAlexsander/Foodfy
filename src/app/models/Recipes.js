@@ -103,4 +103,19 @@ module.exports = {
       return callback();
     });
   },
+  chefsSelect(callback) {
+    const query = `
+      SELECT name,id 
+      FROM chefs
+      ORDER BY name
+    `;
+    db.query(query, function (err, results) {
+      if (err) throw `Database Error ${err}`;
+
+      callback(results.rows);
+    });
+  },
+  // filterRecipe(filter,callback) {
+  //   const query
+  // }
 };

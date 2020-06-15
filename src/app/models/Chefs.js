@@ -4,8 +4,9 @@ const { date } = require("../../lib/utils");
 module.exports = {
   all(callback) {
     const query = `
-      SELECT * 
-      FROM chefs
+      SELECT chefs.*,count(recipes) AS qntRecipes 
+      FROM chefs LEFT JOIN recipes ON (chefs.id = recipes.chef_id)
+      GROUP BY chefs.id
     `;
     db.query(query, function (err, results) {
       if (err)
@@ -60,6 +61,29 @@ module.exports = {
     db.query(query, [id], function (err, results) {
       if (err) throw `Database erro at delete chefs ${err}`;
       callback();
+    });
+  },
+  findRecipe(chefId, callback) {
+    const query = `
+      SELECT * 
+      FROM recipes
+      WHERE chef_id = $1
+    `;
+    db.query(query, [chefId], function (err, results) {
+      if (err) throw `Database error at findRecipe ${err}`;
+      callback(results.rows);
+    });
+  },
+  countRecipe(chefId, callback) {
+    const query = `
+      SELECT count(*) AS qntRecipes
+      FROM recipes
+      WHERE chef_id = $1
+      GROUP BY chef_id
+    `;
+    db.query(query, [chefId], function (err, results) {
+      if (err) throw `Database error at countRecipe ${err}`;
+      callback(results.rows);
     });
   },
 };

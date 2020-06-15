@@ -12,6 +12,7 @@ routes.get("/home", user.home);
 routes.get("/sobre", user.sobre);
 routes.get("/receitas", user.receitas);
 routes.get("/receita/:id", user.receita);
+routes.get("/chefs",user.chefs)
 
 /*visão de um admin para o site*/
 routes.get("/admin", function (req, res) {

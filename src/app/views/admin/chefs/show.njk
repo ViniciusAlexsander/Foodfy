@@ -16,10 +16,10 @@
     <div class="perfil">
       <img src="{{chef.avatar_url}}"/>
       <h2>{{chef.name}}</h2>
-      <p>{{recipes.total_recipes}}</p>
+      <p>{{qntRecipes}} receitas</p>
     </div>
   </div>
-  {# <div class="recipesContent">
+  <div class="recipesContent">
     <h2>Receitas</h2>
     <div class="recipes">
       {% for recipe in recipes %}
@@ -29,12 +29,12 @@
             <div class="cardInfo">
               <p class="title">{{recipe.title}}</p>
               <p class="autor">por
-                {{recipe.author}}</p>
+                {{chef.name}}</p>
               <a href="/admin/recipes/{{recipe.id}}">Visualizar</a>
             </div>
           </div>
         </div>
       {% endfor %}
     </div>
-  </div> #}
+  </div>
 {% endblock content %}

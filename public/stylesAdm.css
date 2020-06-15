@@ -8,6 +8,8 @@
 body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
+  position: relative;
+  min-height: 100vh;
 }
 header {
   background-color: #111111;
@@ -246,6 +248,7 @@ input::placeholder {
 .chef {
   max-width: 940px;
   margin: 0 auto;
+  margin-bottom: 64px;
 }
 .chef .perfil {
   text-align: center;
@@ -275,17 +278,20 @@ input::placeholder {
 .chefsContent {
   max-width: 940px;
   margin: 0 auto;
+  text-align: left;
+}
+.chef {
+  margin: 0;
+  margin-bottom: 32px;
 }
 .chefsContent .chefs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-top: 64px;
 }
 .chefs .chef {
   display: flex;
-  justify-content: space-between;
-  text-align: center;
-  margin-bottom: 30px;
+  justify-content: left;
 }
 .chefs .chef .avatar {
   display: inline-block;
@@ -321,6 +327,9 @@ footer {
   text-align: center;
   padding: 23px 0;
   margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 footer p {
   font-size: 14px;
