@@ -11,9 +11,18 @@ module.exports = {
     return res.render("users/sobre");
   },
   receitas(req, res) {
-    Recipes.all(function (recipes) {
-      return res.render("users/receitas", { recipes });
-    });
+    const { filter } = req.query;
+    if (filter) {
+      Recipes.filterRecipe(filter, function (recipes) {
+        return res.render("users/receitas", {
+          recipes,
+        });
+      });
+    } else {
+      Recipes.all(function (recipes) {
+        return res.render("users/receitas", { recipes });
+      });
+    }
   },
   receita(req, res) {
     Recipes.find(req.params.id, function (recipe) {

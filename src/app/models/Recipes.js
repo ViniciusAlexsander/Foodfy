@@ -115,7 +115,17 @@ module.exports = {
       callback(results.rows);
     });
   },
-  // filterRecipe(filter,callback) {
-  //   const query
-  // }
+  filterRecipe(filter, callback) {
+    const query = `
+      SELECT recipes.*,chefs.name AS author
+      FROM recipes JOIN chefs ON (chefs.id = recipes.chef_id)
+      WHERE recipes.title ILIKE '%${filter}%'
+      ORDER BY recipes.title
+    `;
+    db.query(query, function (err, results) {
+      if (err) throw `Database erro at filterRecipe ${err}`;
+
+      callback(results.rows);
+    });
+  },
 };

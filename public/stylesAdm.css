@@ -282,7 +282,7 @@ input::placeholder {
 }
 .chef {
   margin: 0;
-  margin-bottom: 32px;
+  margin-bottom: 64px;
 }
 .chefsContent .chefs {
   display: grid;
@@ -326,9 +326,8 @@ footer {
   background: #eeeeee;
   text-align: center;
   padding: 23px 0;
-  margin-top: 50px;
+  margin-top: 160px;
   position: absolute;
-  bottom: 0;
   width: 100%;
 }
 footer p {

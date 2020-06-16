@@ -2,6 +2,26 @@
 {% block head %}
   <title>Foodfy - Receitas</title>
   {% endblock%}
+
+  {% block cabecalho %}
+    <header>
+      <div class="cabecalho">
+        <div class="img">
+          <a href="/"><img src="/imgs/logo.png"/></a>
+        </div>
+        <div class="links">
+          <a href="/sobre">Sobre</a>
+          <a href="/receitas">Receitas</a>
+          <a href="/chefs">Chefs</a>
+        </div>
+        <form class="filter" action="/receitas" method="GET">
+          <input type="text" name="filter" placeholder="Filtrar por nome da receita" value="{{filter}}">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+    </header>
+  {% endblock cabecalho %}
+
   {% block content %}
     <div class="receitas">
       <h2>Nossas receitas</h2>

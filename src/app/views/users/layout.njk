@@ -10,22 +10,20 @@
       <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-      <header>
-        <div class="cabecalho">
-          <div class="img">
-            <a href="/"><img src="/imgs/logo.png"/></a>
+      {% block cabecalho %}
+        <header>
+          <div class="cabecalho">
+            <div class="img">
+              <a href="/"><img src="/imgs/logo.png"/></a>
+            </div>
+            <div class="links">
+              <a href="/sobre">Sobre</a>
+              <a href="/receitas">Receitas</a>
+              <a href="/chefs">Chefs</a>
+            </div>
           </div>
-          <div class="links">
-            <a href="/sobre">Sobre</a>
-            <a href="/receitas">Receitas</a>
-            <a href="/chefs">Chefs</a>
-          </div>
-          <form action="/receitas" method="GET">
-            <input type="text" name="filter" placeholder="Nome da receita" value="{{filter}}">
-            <button type="submit">Procurar</button>
-          </form>
-        </div>
-      </header>
+        </header>
+      {% endblock cabecalho %}
       {% block content %}{% endblock%}
         <footer>
           <p>Todos os direitos reservados, receitas Foodfy</p>

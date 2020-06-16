@@ -20,9 +20,8 @@ footer {
   background: #eeeeee;
   text-align: center;
   padding: 23px 0;
-  margin-top: 50px;
+  margin-top: 160px;
   position: absolute;
-  bottom: 0;
   width: 100%;
 }
 footer p {
@@ -49,6 +48,19 @@ footer p {
 .links a:hover {
   padding-bottom: 3px;
   border-bottom: 1px solid black;
+}
+.cabecalho .filter input {
+  border: 1px solid #dddddd;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.cabecalho .filter button {
+  background-color: #6558c3;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 4px 8px;
+  border: none;
 }
 /*descrição*/
 .descricao {
