@@ -262,6 +262,7 @@ footer p {
 .chefs .chef {
   display: flex;
   justify-content: left;
+  align-items: center;
 }
 .chefs .chef .avatar {
   display: inline-block;

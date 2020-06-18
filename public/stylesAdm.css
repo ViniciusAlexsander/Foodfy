@@ -250,6 +250,7 @@ input::placeholder {
   margin: 0 auto;
   margin-bottom: 64px;
 }
+
 .chef .perfil {
   text-align: center;
 }
@@ -281,17 +282,20 @@ input::placeholder {
   text-align: left;
 }
 .chef {
+  margin: 0 auto;
+  margin-bottom: 64px;
+}
+.chefs .chef {
   margin: 0;
   margin-bottom: 64px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 .chefsContent .chefs {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 64px;
-}
-.chefs .chef {
-  display: flex;
-  justify-content: left;
 }
 .chefs .chef .avatar {
   display: inline-block;
