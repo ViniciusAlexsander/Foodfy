@@ -1,17 +1,18 @@
 const Recipes = require("../models/Recipes");
 
 module.exports = {
-  index(req, res) {
-    Recipes.all(function (recipes) {
-      return res.render("admin/recipes/index", { recipes });
-    });
+  async index(req, res) {
+    let results = await Recipes.all();
+    const recipes = results.rows;
+
+    return res.render("admin/recipes/index", { recipes });
   },
-  create(req, res) {
-    Recipes.chefsSelect(function (options) {
-      return res.render("admin/recipes/create", { chefs: options });
-    });
+  async create(req, res) {
+    let results = await Recipes.chefsSelect();
+    const options = results.rows;
+    return res.render("admin/recipes/create", { chefs: options });
   },
-  post(req, res) {
+  async post(req, res) {
     const keys = Object.keys(req.body);
     for (key of keys) {
       if (req.body[key] == "") {
@@ -19,26 +20,30 @@ module.exports = {
       }
     }
 
-    Recipes.create(req.body, function (recipe) {
-      return res.redirect(`/admin/recipes/${recipe.id}`);
-    });
-  },
-  show(req, res) {
-    Recipes.find(req.params.id, function (recipe) {
-      if (!recipe) return res.send("Recipe not found");
-      return res.render(`admin/recipes/show`, { recipe });
-    });
-  },
-  edit(req, res) {
-    Recipes.find(req.params.id, function (recipe) {
-      if (!recipe) return res.send("Recipe not found");
+    let results = await Recipes.create(req.body);
+    const recipe = results.rows[0];
 
-      Recipes.chefsSelect(function (options) {
-        return res.render("admin/recipes/edit", { recipe, chefs: options });
-      });
-    });
+    return res.redirect(`/admin/recipes/${recipe.id}`);
   },
-  put(req, res) {
+  async show(req, res) {
+    let results = await Recipes.find(req.params.id);
+    const recipe = results.rows[0];
+
+    if (!recipe) return res.send("Recipe not found");
+    return res.render(`admin/recipes/show`, { recipe });
+  },
+  async edit(req, res) {
+    let results = await Recipes.find(req.params.id);
+    const recipe = results.rows[0];
+
+    if (!recipe) return res.send("Recipe not found");
+
+    results = await Recipes.chefsSelect();
+    const options = results.rows;
+
+    return res.render("admin/recipes/edit", { recipe, chefs: options });
+  },
+  async put(req, res) {
     const keys = Object.keys(req.body);
 
     for (key of keys) {
@@ -46,13 +51,12 @@ module.exports = {
         return res.send("Please, fill all filds");
       }
     }
-    Recipes.update(req.body, function () {
-      return res.redirect(`/admin/recipes/${req.body.id}`);
-    });
+
+    await Recipes.update(req.body);
+    return res.redirect(`/admin/recipes/${req.body.id}`);
   },
-  delete(req, res) {
-    Recipes.delete(req.body.id, function () {
-      return res.redirect(`/admin/recipes`);
-    });
+  async delete(req, res) {
+    await Recipes.delete(req.body.id);
+    return res.redirect(`/admin/recipes`);
   },
 };
