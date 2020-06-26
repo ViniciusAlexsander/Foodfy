@@ -7,7 +7,7 @@
         {{recipe.title}}</h2>
     </div>
     <form action="/admin/recipes?_method=PUT" method="post">
-      {% include 'admin/fields.njk'%}
+      {% include 'admin/recipes/fields.njk'%}
       <input type="hidden" name="id" value="{{recipe.id}}">
       <div class="buttons">
         <button class="salvar" type="submit">Salvar receita</button>
@@ -19,4 +19,5 @@
         <button class="deletar" type="submit">Deletar</button>
       </div>
     </form>
-  {% endblock content %}
+  </div>
+{% endblock content %}

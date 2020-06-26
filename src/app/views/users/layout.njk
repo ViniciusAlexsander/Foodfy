@@ -7,20 +7,23 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="icon" href="/imgs/logo.png" type="image/x-icon"/>
-      <link rel="stylesheet" href="/stylesAdm.css"/>
+      <link rel="stylesheet" href="/styles.css"/>
     </head>
     <body>
-      <header>
-        <div class="cabecalho">
-          <div class="img">
-            <a href="/"><img src="/imgs/logo2.png"/></a>
+      {% block cabecalho %}
+        <header>
+          <div class="cabecalho">
+            <div class="img">
+              <a href="/"><img src="/imgs/logo.png"/></a>
+            </div>
+            <div class="links">
+              <a href="/sobre">Sobre</a>
+              <a href="/receitas">Receitas</a>
+              <a href="/chefs">Chefs</a>
+            </div>
           </div>
-          <div class="links">
-            <a href="/admin/recipes/create">Criar Receita</a>
-            <a href="/admin/recipes">Ver Receitas</a>
-          </div>
-        </div>
-      </header>
+        </header>
+      {% endblock cabecalho %}
       {% block content %}{% endblock%}
         <footer>
           <p>Todos os direitos reservados, receitas Foodfy</p>

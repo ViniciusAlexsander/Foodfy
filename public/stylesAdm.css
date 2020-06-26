@@ -8,10 +8,11 @@
 body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
+  position: relative;
+  min-height: 100vh;
 }
 header {
   background-color: #111111;
-  width: 100%;
   padding: 32px;
   text-align: center;
   margin-bottom: 50px;
@@ -43,10 +44,14 @@ header {
   min-width: 720px;
   margin: 50px auto;
 }
+.cardCabecalho,
 .receita .cardCabecalho,
 .card .cardCabecalho {
   display: grid;
   grid-template-columns: 700px 1fr;
+}
+.cardCabecalho {
+  align-items: center;
 }
 .buttons {
   display: inline-block;
@@ -139,6 +144,9 @@ input::placeholder {
 }
 .recipe {
   width: 300px;
+  margin-right: 42px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 .card img {
   width: 172px;
@@ -236,15 +244,97 @@ input::placeholder {
 .adicionais p {
   margin-bottom: 20px;
 }
+/* Show chef solo*/
+.chef {
+  max-width: 940px;
+  margin: 0 auto;
+  margin-bottom: 64px;
+}
+
+.chef .perfil {
+  text-align: center;
+}
+.perfil img {
+  margin-top: 50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.perfil h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: #111111;
+  line-height: 42px;
+}
+.perfil p {
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  color: #777777;
+  font-size: 20px;
+  line-height: 24px;
+}
+/*PAGINA DE GERENCIAMENTO DE CHEFS*/
+.chefsContent {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: left;
+}
+.chef {
+  margin: 0 auto;
+  margin-bottom: 64px;
+}
+.chefs .chef {
+  margin: 0;
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.chefsContent .chefs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 64px;
+}
+.chefs .chef .avatar {
+  display: inline-block;
+}
+.chefs .chef .avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 2px #111111;
+}
+.chefs .chef .name {
+  display: inline-block;
+  text-align: left;
+  margin-left: 20px;
+}
+.chefs .chef .name p {
+  font-weight: normal;
+  font-size: 18px;
+  color: #111111;
+  text-transform: capitalize;
+}
+.chefs .chef .name a {
+  font-size: 14px;
+  color: #6558c3;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 /*Footer*/
 footer {
+  max-width: 101%;
   background: #eeeeee;
   text-align: center;
   padding: 23px 0;
-  margin-top: 50px;
+  margin-top: 160px;
+  position: absolute;
+  width: 100%;
 }
 footer p {
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #999999;
   text-align: center;

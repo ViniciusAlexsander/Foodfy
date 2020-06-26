@@ -1,45 +1,44 @@
 {% extends "users/layout.njk" %}
 {% block head %}
   <title>Foodfy -
-    {{receita.title}}</title>
-  <link rel="stylesheet" href="styles.css"/>
+    {{recipe.title}}</title>
 {% endblock %}
 {% block content %}
   <div class="receita">
-    <img src="{{receita.image}}"/>
-    <h2>{{receita.title}}</h2>
+    <img src="{{recipe.image}}"/>
+    <h2>{{recipe.title}}</h2>
     <p>por
-      {{receita.author}}</>
+      {{recipe.author}}</p>
     <div class="ingredientes topicos">
       <div class="subtitulos">
         <h3>Ingredientes</h3>
-        <button class="esconder">Esconder</button>
+        {# <button class="esconder">Esconder</button> #}
       </div>
-      <ul>
-        {% for ingrediente in receita.ingredients %}
-          <li>{{ingrediente}}</li>
+      <p>
+        {% for ingredient in recipe.ingredients %}
+          <li>{{ingredient}}</li>
           {% endfor%}
-        </ul>
+        </p>
       </div>
     </div>
     <div class="preparo topicos">
       <div class="subtitulos">
         <h3>Modo de preparo</h3>
-        <button class="esconder" value="mostrar">Esconder</button>
+        {# <button class="esconder" value="mostrar">Esconder</button> #}
       </div>
-      <ul>
-        {% for passo in receita.preparation %}
+      <p>
+        {% for passo in recipe.preparation %}
           <li>{{passo}}
           </li>
           {% endfor%}
-        </ul>
+        </p>
       </div>
       <div class="adicionais topicos">
         <div class="subtitulos">
           <h3>Informações adicionais</h3>
-          <button class="esconder">Esconder</button>
+          {# <button class="esconder">Esconder</button> #}
         </div>
-        <p>{{receita.information}}</p>
+        <p>{{recipe.information}}</p>
       </div>
     </div>
     {% endblock%}

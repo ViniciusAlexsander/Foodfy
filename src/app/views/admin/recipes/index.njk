@@ -2,7 +2,12 @@
 
 {% block content %}
   <div class="recipesContent">
-    <h2>Gerenciar receitas</h2>
+    <div class="cardCabecalho">
+      <h2>Gerenciar receitas</h2>
+      <div class="buttons">
+        <a class="salvar" href="/admin/recipes/create">Criar Receita</a>
+      </div>
+    </div>
     <div class="recipes">
       {% for recipe in recipes %}
         <div class="recipe">

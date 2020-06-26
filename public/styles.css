@@ -6,16 +6,33 @@
 body {
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
+  position: relative;
+  min-height: 100vh;
 }
 header {
-  width: 100%;
   padding: 32px;
   text-align: center;
   margin-bottom: 50px;
+  background-color: #eeeeee;
+}
+/*Footer*/
+footer {
+  background: #eeeeee;
+  text-align: center;
+  padding: 23px 0;
+  margin-top: 160px;
+  position: absolute;
+  width: 100%;
+}
+footer p {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  color: #999999;
+  text-align: center;
 }
 .cabecalho {
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .links {
   text-align: center;
@@ -31,6 +48,19 @@ header {
 .links a:hover {
   padding-bottom: 3px;
   border-bottom: 1px solid black;
+}
+.cabecalho .filter input {
+  border: 1px solid #dddddd;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.cabecalho .filter button {
+  background-color: #6558c3;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 4px 8px;
+  border: none;
 }
 /*descrição*/
 .descricao {
@@ -106,19 +136,6 @@ header {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   color: #777777;
-}
-/*Footer*/
-footer {
-  background: #eeeeee;
-  text-align: center;
-  padding: 23px 0;
-  margin-top: 50px;
-}
-footer p {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  color: #999999;
-  text-align: center;
 }
 /*PAGINA SOBRE*/
 .about {
@@ -216,4 +233,54 @@ footer p {
 }
 .adicionais p {
   margin-bottom: 20px;
+}
+
+/*visualizar receita*/
+.view {
+  font-weight: bold;
+  font-size: 16px;
+  color: #6558c3;
+  text-decoration: none;
+  text-align: left;
+}
+
+/*PAGINA DE GERENCIAMENTO DE CHEFS*/
+.chefsContent {
+  max-width: 940px;
+  margin: 0 auto;
+  text-align: left;
+}
+.chef {
+  margin: 0;
+  margin-bottom: 32px;
+}
+.chefsContent .chefs {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 64px;
+}
+.chefs .chef {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.chefs .chef .avatar {
+  display: inline-block;
+}
+.chefs .chef .avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  box-shadow: 1px 1px 2px #111111;
+}
+.chefs .chef .name {
+  display: inline-block;
+  text-align: left;
+  margin-left: 20px;
+}
+.chefs .chef .name p {
+  font-weight: normal;
+  font-size: 18px;
+  color: #111111;
+  text-transform: capitalize;
 }
