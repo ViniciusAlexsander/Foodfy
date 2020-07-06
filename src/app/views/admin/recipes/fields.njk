@@ -1,15 +1,21 @@
 <div class="item">
-  <div class="titulo">Url da foto da receita</div>
+  <div class="titulo">Fotos da receita</div>
   <div>
-    <input type="url" name="image" placeholder="https://" value="{{recipe.image}}">
+    <div id="photos-upload">
+      <input id="photos-input" type="file" name="photos" multiple="multiple" accept="image/*" onchange=PhotosUpload.handleFileInput(event)>
+      <p>Selecione até 5 fotos</p>
+    </div>
+    <div id="photos-preview"></div>
   </div>
 </div>
+
 <div class="item">
   <div class="titulo">Título da receita</div>
   <div>
     <input type="text" name="title" placeholder="" value="{{recipe.title}}">
   </div>
 </div>
+
 <div class="item">
   <div class="titulo">Autor da receita</div>
   <div>
@@ -20,6 +26,7 @@
     </select>
   </div>
 </div>
+
 <div class="item">
   <div class="titulo">Ingredientes</div>
   <div id="ingredients">
@@ -32,6 +39,7 @@
   </div>
   <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
 </div>
+
 <div class="item">
   <div class="titulo">Modo de preparo</div>
   <div id="preparations">
@@ -44,12 +52,14 @@
   </div>
   <button type="button" class="add-preparation">Adicionar novo passo</button>
 </div>
+
 <div class="item">
   <div class="titulo">Informações adicionais</div>
   <div>
     <input class="last" type="text" name="information" placeholder="Digite alguma dica de preparo ou algo similar" value="{{recipe.information}}">
   </div>
 </div>
+
 <script>
   function addIngredient() {
     const ingredients = document.querySelector("#ingredients");

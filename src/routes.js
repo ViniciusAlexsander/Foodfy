@@ -4,6 +4,10 @@ const user = require("./app/controllers/users");
 const recipes = require("./app/controllers/recipes");
 const chefs = require("./app/controllers/chefs");
 
+routes.get("/HelloWorld", function (req, res) {
+  return res.json({ Hello: "World", Olá: "Mundo!" });
+});
+
 //visão para usuarios padrões do site
 routes.get("/", function (req, res) {
   return res.redirect("/home");
@@ -12,7 +16,7 @@ routes.get("/home", user.home);
 routes.get("/sobre", user.sobre);
 routes.get("/receitas", user.receitas);
 routes.get("/receita/:id", user.receita);
-routes.get("/chefs",user.chefs)
+routes.get("/chefs", user.chefs);
 
 /*visão de um admin para o site*/
 routes.get("/admin", function (req, res) {
