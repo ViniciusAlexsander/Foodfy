@@ -45,7 +45,7 @@ const PhotosUpload = {
     const div = document.createElement("div");
     div.classLista.add("photo");
 
-    div.onclick = () => alert("cliquei");
+    div.onclick = PhotosUpload.removePhoto;
 
     div.appendChild(image);
 
@@ -59,4 +59,11 @@ const PhotosUpload = {
     button.innerHTML = "close";
     return button;
   },
+  removePhoto(event) {
+    const photoDiv = event.target.parentNode
+    const photosArray = Array.from(PhotosUpload.preview.children)
+    const index = photosArray.indexOf(photoDiv)
+
+    photoDiv.remove()
+  }
 };
